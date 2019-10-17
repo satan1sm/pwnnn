@@ -1,4 +1,3 @@
 #!/usr/bin/env sh
 
-pw=`./crack_pw`
-ssh random@pwnable.kr -p2222 "echo $pw | ./random"
+ssh random@pwnable.kr -p2222 "echo `./crack_pw` | ./random"
