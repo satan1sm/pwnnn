@@ -25,5 +25,7 @@ int main(int argc, char* argv[], char* envp[]){
 
 ## Pwn
 1. 程式需要一個 command line argument
+
 2. 傳入的參數被 `atoi()` 轉數字，0x1234 = 4660，所以傳入4660可得到 stdin 的 fd
+
 3. 從 stdin 進行 `read()` 的時候直接輸入 LETMEWIN 即可拿到 flag
