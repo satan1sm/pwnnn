@@ -73,7 +73,7 @@ if (fd = (open(...) < 0)) {
 fd = 0
 因此後面 `read()` 的部分其實會從 stdin 讀取，而非 /home/mistake/password
 
-回顧一下XOR Encryption/Decryption：
+回顧一下 XOR Truth table：
 
 | x | y | F |
 |---|---|---|
