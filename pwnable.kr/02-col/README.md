@@ -37,7 +37,7 @@ int main(int argc, char* argv[]){
 ## Pwn
 1. 題目要我們輸入20 characters的passcode
 2. 如果 `check_password()` 所 return 的 hashcode 爲 0x21DD09EC，就會印出 flag
-3. `check_password()` 會 cast passed pointer into int*，20/4=5，將5個數字加總計算 user hashcode
+3. `check_password()` will cast passed pointer into int\*，20/4=5，將5個 int 加總計算 user hashcode
 4. 問題：要傳什麼進去？
    * 0x21DD09EC / 5 = 163626824.8 無法整除
    * 但我們可以讓前四個數字都是 163626824 = 0x6c5cec8
