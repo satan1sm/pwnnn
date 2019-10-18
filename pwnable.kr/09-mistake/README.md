@@ -69,8 +69,11 @@ if (fd = (open(...) < 0)) {
 ```
 
 正常來說，`open()` 成功的情況下會回傳一個file descriptor，失敗才會 < 0
+
 所以：open() < 0 嗎？ False (i.e., 0)
+
 fd = 0
+
 因此後面 `read()` 的部分其實會從 stdin 讀取，而非 /home/mistake/password
 
 回顧一下 XOR Truth table：
