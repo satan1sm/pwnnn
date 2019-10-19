@@ -197,9 +197,9 @@ $1 = 0x666c50
 
 所以 m->introduce() 在執行的時候，實際上是呼叫了 m 的 __vfptr+8 的 function。
 
-我們可以試着篡改 __vfptr 的值，讓 m->introduce() 呼叫 m->give_shell()
+我們可以試着篡改 __vfptr 的值，讓 `m->introduce()` 呼叫 `m->give_shell()`
 
-這邊只要讓 __vfptr 的值爲 __vfptr-8 = 0x0000000000401568 就可以了，並寫入檔案。
+這邊只要讓 __vfptr 的值爲 `__vfptr-8 = 0x0000000000401568` 就可以了，並寫入檔案。
 ```
 $ python2 -c 'print "\x68\x15\x40\x00\x00\x00\x00\x00"' > /tmp/aesophor_uaf/vt
 ```
@@ -230,7 +230,7 @@ $
 
 `3 2 2 1` 就可以取得shell。
 
-這邊執行兩次2的原因在於：先 delete m 然後才 delete w。
+這邊執行兩次2的原因在於：先 `delete m` 然後才 `delete w`。
 * 第一次選擇2的時候，資料會讀進 w 的區域
 * 第二次選擇2的時候，資料會讀進 m 的區域
 
