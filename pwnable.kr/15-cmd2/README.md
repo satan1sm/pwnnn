@@ -10,7 +10,7 @@
 
 有趣的是 `filter()` 雖然擋了 backtick，但沒有擋 `$()`。
 
-使用 shell built-in command "printf" 可以從 $(pwd) 切除一個 `/`
+使用 shell built-in command "printf" 可以從 $(pwd) 切出一個 `/`
 
 ```
 cmd2@prowl:~$ ./cmd2 'echo $(printf %.1s $(pwd))'
