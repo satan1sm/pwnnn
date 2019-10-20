@@ -20,7 +20,7 @@ int betting() //Asks user amount to bet
 ```
 
 ## Pwn
-輸入一個很大的數，如 -10000000，輸了的時候應該會執行 `cash - bet` 之類的動作，於是可以得到 flag
+輸入一個很小的數，如 -10000000，輸了的時候應該會執行 `cash - bet` 之類的動作，於是可以得到 flag
 
 ```
 YaY_I_AM_A_MILLIONARE_LOL
