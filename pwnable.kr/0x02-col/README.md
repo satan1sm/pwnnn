@@ -44,8 +44,8 @@ int main(int argc, char* argv[]){
 4. 問題：要傳什麼進去？
    * 0x21dd09ec / 5 = 163626824.8 無法整除
    * 但我們可以讓前四個數字都是 163626824 = 0x6c5cec8
-   * 前四個數字的總和：0x1b173b20
-   * 所以最後一個數字：0x06c5cecc
+   * 前四個數字的總和：4 * 0x6c5cec8 = 0x1b173b20
+   * 所以最後一個數字：0x21dd09ec - 0x1b173b20 = 0x06c5cecc
    * 這樣一來：0x1b173b20 + 0x06c5cecc = 0x21dd09ec
    
 5. 打造payload，數字部分需注意 x86 儲存數字的方式是 little endian（low to low, high to high, i.e., 低位數在前面）
