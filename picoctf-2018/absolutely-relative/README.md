@@ -41,7 +41,7 @@ int main()
 
 1. `/problems/absolutely-relative_0_d4f0f1c47f503378c4bb81981a80a9b6/flag.txt` 會被讀入 `char flag[99]`
 2. `./permission.txt` 會被讀入 `char permission[10]`
-3. `!strncmp(permission, yes, yes_len)`：如果 permission.txt 內容是 yes，就會印出 flag
+3. 如果 permission.txt 內容是 "yes"，就會印出 flag
 
 ## Solution
 ```
