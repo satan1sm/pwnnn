@@ -48,3 +48,9 @@ End of assembler dump.
 (gdb) x $esp
 0xffffc86c:	0xffffc870
 ```
+
+結論： push reg 對應的 code snippet 應修正爲...
+```
+mov [esp - 4], reg
+sub esp, 4
+```
