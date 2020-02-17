@@ -10,12 +10,16 @@ sub esp, 4
 mov [esp], reg
 ```
 
+<br>
+
 ## 先說結論
 上面的 code snippet 是錯的，應修正爲...
 ```
 mov [esp - 4], reg
 sub esp, 4
 ```
+
+<br>
 
 ## 答案：B
 push 後，新的 esp 是 0xffffc86c，但入棧的值是 0xffffc870（也就是 push 前的 esp）。因此上面的第一個 code snippet 和實驗結果矛盾。
