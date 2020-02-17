@@ -1,4 +1,5 @@
-問題：如果 push reg 等同於以下 code snippet，那麼 push esp 會把什麼值入棧？
+## 問題
+如果 push reg 等同於以下 code snippet，那麼 push esp 會把什麼值入棧？
 
 (A) esp -= 4
 
@@ -8,9 +9,16 @@
 sub esp, 4
 mov [esp], reg
 ```
-答案：B
 
-push 後，新的 esp 是 0xffffc86c，但入棧的值是 0xffffc870（也就是 push 前的 esp）。因此上面的 code snippet 替換法不適用於 push esp。
+## 先說結論
+上面的 code snippet 是錯的，應修正爲...
+```
+mov [esp - 4], reg
+sub esp, 4
+```
+
+## 答案：B
+push 後，新的 esp 是 0xffffc86c，但入棧的值是 0xffffc870（也就是 push 前的 esp）。因此上面的第一個 code snippet 和實驗結果矛盾。
 ```
 (gdb) disas _start
 Dump of assembler code for function _start:
@@ -47,10 +55,4 @@ End of assembler dump.
 
 (gdb) x $esp
 0xffffc86c:	0xffffc870
-```
-
-結論： push reg 對應的 code snippet 應修正爲...
-```
-mov [esp - 4], reg
-sub esp, 4
 ```
