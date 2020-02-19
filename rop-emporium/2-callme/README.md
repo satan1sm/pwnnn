@@ -159,10 +159,11 @@ pwnme() -> callme_one(1,2,3) -> callme_two(1,2,3) -> callme_three(1,2,3)
 ## 结论
 > 如果要用 ret2func 达成 ROP Chain，每次 return 前必须额外 ret2gadget 把目前函数的全部参数 pop 掉。
 ```
+padding +
 func1 + pop_n_ret + n * arguments +
 func2 + pop_n_ret + n * arguments +
 func3 + pop_n_ret + n * arguments +
 ...
 ```
 
-不带参数的话，应该就不用 pop_n_ret ，可以直接接下一个 func 的位址...吧 (?)
+不带参数的话，应该就不用 pop_n_ret 这步了，可以直接接下一个 func 的位址...吧 (?)
