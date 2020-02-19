@@ -114,13 +114,19 @@
 
 从 ropme+258 开始是一连串的 open(), read(), puts(), close()，估计就是打印 flag 的地方，如果能直接 return 到这里一切就解决了。
 
-但有个坑爹的地方，注意函数位址，都是 0x080axxxx，中间包含了 `0xa`，如果我们的 payload 包含 0xa 就会被截断...
+但有个坑爹的地方，注意 ropme() 里的函数位址，全都是 0x08**0a**xxxx！！
+
+中间包含了 `0xa`，如果我们的 payload 包含 0xa ，从该处开始就会被 gets() 截断
 
 所以我们没办法 return 到 ropme() 里面的任何一处
+
+<br>
 
 那么只能按照题目意思乖乖来了，执行 A(), B(), ... , G() 并计算 EXP 的总和，最后一次 ret 返回到 main() 里面重新呼叫一次 ropme()，
 
 然后输入正确的 exp 总和，flag 就会打印出来了。
+
+<br>
 
 ## Pwn
 ROP Chain
@@ -130,3 +136,5 @@ A + B + C + D + E + F + G + '\xfc\xff\x09\x08'
 ```
 
 exploit 脚本请参考 exploit.py
+
+flag: `Magic_spell_1s_4vad4_K3daVr4!`
