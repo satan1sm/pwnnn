@@ -1,5 +1,5 @@
 ## Reverse
-和前一题 3-write4 差不多，只是这次又多了 badchars 检测，我们的 payload 不能包含以下任何一个字元：
+和前一题 3-write4 解法差不多，只是这次又多了 badchars 检测，题目特别提示 payload 不能包含以下任何一个字元：
 ```
 badchars are: b i c / <space> f n s
 ```
