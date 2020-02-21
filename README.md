@@ -4,7 +4,7 @@ Before starting to learn binary exploitation, one is recommended to learn at lea
 2. Python
 3. x86 Assembly
 4. OS concepts (especially virtual memory layout)
-5. debugging with gdb
+5. Debugging programs with gdb
 
 Watch these videos to get started:
 * [Introduction To Reverse Engineering With Radare2](https://www.youtube.com/watch?v=LAkYW5ixvhg&t=669s)
