@@ -31,7 +31,9 @@
 5. 解析完成后， GOT entry 所记录的「实际 address」 就会自动更新，然后就正式调用该函数。
 6. 下次调用该函数时，由于 GOT 已记录该函数的「实际 address」，已不再是「未解析」的状态了，所以可以直接调用。
 
-详细：https://ropemporium.com/guide.html
+详细：
+1. http://www.qnx.com/developers/docs/qnxcar2/index.jsp?topic=%2Fcom.qnx.doc.neutrino.prog%2Ftopic%2Fdevel_Lazy_binding.html
+2. https://ropemporium.com/guide.html
 
 <br>
 
