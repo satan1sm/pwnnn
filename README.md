@@ -23,9 +23,9 @@ Watch these videos to get started:
 
 ### ROP Techniques
 1. [Use buffer overflow to replace a return address](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/0-ret2win)
-1. [ret2libc](https://github.com/aesophor/pwnnn/blob/master/picoctf-2018/got-2-learn-libc/exploit.py)
-2. [Chain functions with arguments](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/2-callme#结论)
-3. [Find Gadgets](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/3-write4#rop-gadgets)
-4. [Use readelf to find writable sections](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/3-write4#pwn)
-5. Stack Pivot
-6. ret2csu
+2. [ret2libc](https://github.com/aesophor/pwnnn/blob/master/picoctf-2018/got-2-learn-libc/exploit.py)
+3. [Chain functions with arguments](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/2-callme#结论)
+4. [Find Gadgets](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/3-write4#rop-gadgets)
+5. [Use readelf to find writable sections](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/3-write4#pwn)
+6. Stack Pivot
+7. ret2csu
