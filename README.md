@@ -21,7 +21,7 @@ Watch these videos to get started:
 
 <br>
 
-### ROP Techniques
+### Return Oriented Programming (ROP)
 1. [Use buffer overflow to replace a return address](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/0-ret2win)
 2. [ret2libc](https://github.com/aesophor/pwnnn/blob/master/picoctf-2018/got-2-learn-libc/exploit.py)
 3. [Chain functions with arguments](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/2-callme#结论)
@@ -29,3 +29,13 @@ Watch these videos to get started:
 5. [Use readelf to find writable sections](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/3-write4#pwn)
 6. Stack Pivot
 7. ret2csu
+
+<br>
+
+### Heap Exploitation
+1. [Use-after-free](https://github.com/aesophor/pwnnn/tree/master/pwnable.kr/0x10-uaf)
+
+<br>
+
+### Shellcode
+1. [Bamboofox Trainning 2015 Summer - Shellcode](https://www.youtube.com/watch?v=auv-64HUBw8)
