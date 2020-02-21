@@ -34,6 +34,7 @@
 详细：
 1. http://www.qnx.com/developers/docs/qnxcar2/index.jsp?topic=%2Fcom.qnx.doc.neutrino.prog%2Ftopic%2Fdevel_Lazy_binding.html
 2. https://ropemporium.com/guide.html
+3. https://www.jianshu.com/p/2c93d321ea8c
 
 <br>
 
