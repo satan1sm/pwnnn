@@ -6,7 +6,6 @@ Before starting to learn binary exploitation, one is recommended to learn at lea
 4. OS concepts (especially virtual memory layout)
 5. Debugging programs with gdb
 
-Watch these videos to get started:
 * [Introduction To Reverse Engineering With Radare2](https://www.youtube.com/watch?v=LAkYW5ixvhg&t=669s)
 * [Reversing and Cracking first simple Program - bin 0x05](https://www.youtube.com/watch?v=VroEiMOJPm8)
 
