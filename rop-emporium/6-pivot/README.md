@@ -20,7 +20,7 @@ isn't called during normal program flow, you'll have to call it first to populat
 ## Calling Unimported Functions in Shared Library (.so)
 这道题我们需要呼叫 ret2win() 来打印 flag，但 ret2win() 在程式中完全没被呼叫，那么我们怎么知道它是真实位址呢？
 
-我们可以用 pwntools 计算出 ret2win() 和 foothold_function() 的偏移量：
+我们可以用 pwntools 计算出 ret2win() 和 foothold_function() 在 `libpivot32.so` 里的 offset：
 ```
 from pwn import *
 
