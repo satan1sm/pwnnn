@@ -26,7 +26,7 @@ Before starting to learn binary exploitation, one is recommended to learn at lea
 3. [Chain functions with arguments](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/2-callme#结论)
 4. [Find Gadgets](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/3-write4#rop-gadgets)
 5. [Use readelf to find writable sections](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/3-write4#pwn)
-6. Stack Pivot
+6. [Stack Pivot](https://github.com/satan1sm/pwnnn/tree/master/rop-emporium/6-pivot#stack-pivot)
 7. ret2csu
 
 <br>
