@@ -73,9 +73,9 @@ $ ROPGadget --binary fluff32 | grep 'pop ebx'
 4. 最后 gadget4，`xhcg ecx, edx` 把 edx 结果存入 ecx，然后重新设定 edx = 0xdefaced0
 
 到这里，我们已经有办法把 address 写入 ecx 了，再着：
-5. 再用 gadget2，设定 ebx = 我们给的值
-6. 再用 gadget3，xor edx, ebx，异或结果会存在 edx
-7. 最后 gadget1，`mov [ecx], edx`
+1. 再用 gadget2，设定 ebx = 我们给的值
+2. 再用 gadget3，xor edx, ebx，异或结果会存在 edx
+3. 最后 gadget1，`mov [ecx], edx`
 
 就完成一个 32-bit 数据的写入（到内存）。
 
