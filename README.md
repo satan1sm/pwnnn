@@ -1,4 +1,4 @@
-## Binary Exploitation Learning Notes
+## Binary Exploitation Learning Notes and Resources
 Before starting to learn binary exploitation, one is recommended to learn at least:
 1. C
 2. Python
