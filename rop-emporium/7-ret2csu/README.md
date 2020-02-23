@@ -166,6 +166,6 @@ pwndbg> x/10gx &_DYNAMIC
 0x00000000004008a4 <+100>:   ret
 ```
 
-要注意在 pop rbx 之前有个 add rsp, 0x8，所以我们必须多加一个 'AAAAAAAA'。
+要注意在 pop rbx 到 ret 之前，还有个 add rsp, 0x8！
 
-也就是说，这边开始需要 `7 * 'AAAAAAAA' + ret2win` 而不是 `6 * 'AAAAAAAA' + ret2win`
+所以这边开始需要 `7 * 'AAAAAAAA' + ret2win` 而不是 `6 * 'AAAAAAAA' + ret2win` (多垫一组 padding)
