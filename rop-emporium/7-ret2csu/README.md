@@ -18,6 +18,10 @@
 ```
 
 ## Return-to-csu
+Video: [BlackHat Asia 2018 - return-to-csu: A New Method to Bypass 64-bit Linux ASLR](https://www.youtube.com/watch?v=mPbHroMVepM)
+
+<br>
+
 在 __libc_csu_init() 里面，我们可以找到两个很有用的 gadgets。
 ```
 pwndbg> disas __libc_csu_init
