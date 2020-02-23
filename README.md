@@ -24,9 +24,9 @@ Before starting to learn binary exploitation, one is recommended to learn at lea
 1. [Use buffer overflow to replace a return address](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/0-ret2win)
 2. [ret2libc](https://github.com/aesophor/pwnnn/blob/master/picoctf-2018/got-2-learn-libc/exploit.py)
 3. [Chain functions with arguments](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/2-callme#结论)
-4. [Find Gadgets](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/3-write4#rop-gadgets)
+4. [Find gadgets](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/3-write4#rop-gadgets)
 5. [Use readelf to find writable sections](https://github.com/aesophor/pwnnn/tree/master/rop-emporium/3-write4#pwn)
-6. [Stack Pivot](https://github.com/satan1sm/pwnnn/tree/master/rop-emporium/6-pivot#stack-pivot)
+6. [Stack pivoting](https://github.com/satan1sm/pwnnn/tree/master/rop-emporium/6-pivot#stack-pivot)
 7. [x86_64 Return-to-csu](https://github.com/satan1sm/pwnnn/tree/master/rop-emporium/7-ret2csu#return-to-csu)
 
 <br>
