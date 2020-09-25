@@ -1,5 +1,5 @@
 CXX=gcc
-CXXFLAGS=-m64 -no-pie
+CXXFLAGS=-m64 -no-pie -g -O0 -Wl,-z,relro,-z,now 
 SRC=server.c
 BIN=server
 
