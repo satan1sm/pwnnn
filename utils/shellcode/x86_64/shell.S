@@ -12,6 +12,7 @@ st:
   xor rdx, rdx
   syscall
   ret
+  nop
 
 ed:
   call st
