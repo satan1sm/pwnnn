@@ -2,3 +2,4 @@
 *.bin
 .gdb_history
 peda-session-*.txt
+.DS_Store
