@@ -28,21 +28,21 @@ BUF_SIZE   equ 64
 %endmacro
 
 
-[section .text]
+[section .special write exec]
 [global _start]
 _start:
   ; Copy shellcode's start address to `addr`
-  mov [rel addr], rdx
+  ;mov [rel addr], rdx
 
 loop:
   clear_buf
-  ; Read data from parent via pipe into `buf`
-  invoke_syscall SYS_READ, PIPE_READ, buf, BUF_SIZE
-  ; Write `buf` content to STDOUT
-  invoke_syscall SYS_WRITE, STDOUT, buf, BUF_SIZE
   ; Read data from stdin into `buf`
   invoke_syscall SYS_READ, STDIN, buf, BUF_SIZE
   ; Write `buf` content to parent via pipe
+  invoke_syscall SYS_WRITE, PIPE_WRITE, buf, BUF_SIZE
+  ; Read data from parent via pipe into `buf`
+  invoke_syscall SYS_READ, PIPE_READ, buf, BUF_SIZE
+  ; Write `buf` content to STDOUT
   invoke_syscall SYS_WRITE, STDOUT, buf, BUF_SIZE
   jmp loop
 
