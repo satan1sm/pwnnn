@@ -1,44 +1,55 @@
 SYS_READ   equ 0
 SYS_WRITE  equ 1
-PIPE_READ  equ 0
-PIPE_WRITE equ 1
+STDIN      equ 0
+STDOUT     equ 1
+STDERR     equ 2
+PIPE_READ  equ 3
+PIPE_WRITE equ 6
 BUF_SIZE   equ 64
 
-[section .special write exec]
+
+; Clear buffer `buf`
+%macro clear_buf 0
+  lea rbx, [rel buf]
+  xor rsi, rsi
+%%next:
+  mov byte [rbx+rsi], 0x00
+  inc rsi
+  cmp rsi, BUF_SIZE
+  jl  %%next
+%endmacro
+
+%macro invoke_syscall 4
+  mov rax, %1
+  mov rdi, %2
+  lea rsi, [rel %3]
+  mov rdx, %4
+  syscall
+%endmacro
+
+
+[section .text]
 [global _start]
 _start:
   ; Copy shellcode's start address to `addr`
   mov [rel addr], rdx
 
 loop:
-  ; Clear `buf`
-  lea rbx, [rel buf]
-  xor rsi, rsi
-__clear_buf:
-  mov byte [rbx+rsi], 0x00
-  inc rsi
-  cmp rsi, BUF_SIZE
-  jl  __clear_buf
-
-  ; Read data from pipe into `buf`
-  mov rax, SYS_READ
-  mov rdi, PIPE_READ
-  lea rsi, [rel buf]
-  mov rdx, BUF_SIZE
-  syscall
-
-  ; write(int fd, const char *buf, size_t count)
-  mov rax, SYS_WRITE
-  mov rdi, PIPE_WRITE
-  lea rsi, [rel buf]
-  mov rdx, BUF_SIZE
-  syscall
+  clear_buf
+  ; Read data from parent via pipe into `buf`
+  invoke_syscall SYS_READ, PIPE_READ, buf, BUF_SIZE
+  ; Write `buf` content to STDOUT
+  invoke_syscall SYS_WRITE, STDOUT, buf, BUF_SIZE
+  ; Read data from stdin into `buf`
+  invoke_syscall SYS_READ, STDIN, buf, BUF_SIZE
+  ; Write `buf` content to parent via pipe
+  invoke_syscall SYS_WRITE, STDOUT, buf, BUF_SIZE
   jmp loop
 
-  ; --------------------------------------------
-  strW: db "W", 0
-  strS: db "S", 0
-  strA: db "A", 0
-  strD: db "D", 0
-  addr: dq 0
-  buf:  db 64 dup(0)
+; --------------------------------------------
+strW: db "W", 0
+strS: db "S", 0
+strA: db "A", 0
+strD: db "D", 0
+addr: dq 0
+buf:  db 64 dup(0)

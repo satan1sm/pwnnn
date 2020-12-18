@@ -23,6 +23,9 @@ clean:
 	rm -f $(BIN) $(SRC).o
 
 bin:
-	for i in $$(objdump -d $(SRC).o | tr '\t' ' ' | tr ' ' '\n' | egrep '^[0-9a-f]{2}$$'); do \
-	  echo -ne "\\x$$i" >> $(BIN); \
+	#for i in $$(objdump -d $(SRC).o | tr '\t' ' ' | tr ' ' '\n' | egrep '^[0-9a-f]{2}$$'); do \
+	#  echo -ne "\\x$$i" >> $(BIN); \
+	#done
+	for i in $$(objdump -M intel -d $(SRC).o | grep "^ " | cut -f2); do\
+	  echo -ne "\\x$$i" >> $(BIN);\
 	done
