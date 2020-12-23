@@ -5,7 +5,7 @@ STDOUT     equ 1
 STDERR     equ 2
 PIPE_READ  equ 3
 PIPE_WRITE equ 6
-BUF_SIZE   equ 64
+BUF_SIZE   equ 256
 
 
 ; Clear buffer `buf`
