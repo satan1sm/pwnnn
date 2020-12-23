@@ -6,6 +6,8 @@ services:
     volumes:
       - ./share:/home/survey:ro
       - ./xinetd:/etc/xinetd.d/survey:ro
+    cap_add:
+      - SYS_PTRACE
     ports:
       - "30201:10101"
     expose:
