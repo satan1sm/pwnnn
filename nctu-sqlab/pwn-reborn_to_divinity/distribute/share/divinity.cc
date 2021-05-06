@@ -93,7 +93,6 @@ int main() {
 
   char* data;
   unsigned int op;
-  string filename;
   Divine* satan = divines[0];
 
   while (1) {
@@ -121,10 +120,6 @@ int main() {
         cout << "resurrected one soul." << endl;
         break;
       }
-
-      case 3:
-        delete satan;
-        break;
 
       default:
         break;
