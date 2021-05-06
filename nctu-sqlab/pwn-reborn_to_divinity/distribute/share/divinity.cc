@@ -76,7 +76,7 @@ int main() {
           "You are Lucifer, the fallen arch-angel and\n"
           "the infamous ruler of hell. After being\n"
           "casted away from the heaven by the god himself\n"
-          "for a millenium, you finally returned to the heaven...\n\n"
+          "for a millenium, you finally returned to the heaven...\n"
           "This time you're going to usurp the god's throne."
        << endl;
 
@@ -95,8 +95,6 @@ int main() {
   unsigned int op;
   string filename;
   Divine* satan = divines[0];
-
-  printf("0x%x\n", *reinterpret_cast<size_t*>(divines[0]));
 
   while (1) {
     cout << endl
