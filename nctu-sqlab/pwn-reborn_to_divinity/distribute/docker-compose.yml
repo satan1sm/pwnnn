@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  divinity:
+    build: ./
+    volumes:
+      - ./share:/home/divinity:ro
+      - ./xinetd:/etc/xinetd.d/divinity:ro
+    cap_add:
+      - SYS_PTRACE
+    ports:
+      - "30201:10101"
+    expose:
+      - "10101"
