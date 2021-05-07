@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  ret2win:
+    build: ./
+    volumes:
+      - ./share:/home/ret2win:ro
+      - ./xinetd:/etc/xinetd.d/ret2win:ro
+    cap_add:
+      - SYS_PTRACE
+    ports:
+      - "30200:10101"
+    expose:
+      - "10101"
