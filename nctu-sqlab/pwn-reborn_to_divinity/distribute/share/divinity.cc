@@ -1,12 +1,9 @@
 // Copyright (c) 2021 Marco Wang <m.aesophor@gmail.com>. All rights reserved.
 extern "C" {
-#include <fcntl.h>
 #include <signal.h>
 #include <unistd.h>
 }
 #include <iostream> 
-#include <fstream>
-#include <cstdlib>
 #include <string>
 
 #define NR_ENEMIES 5  /* number of angels to kill */
@@ -50,11 +47,11 @@ class Devil final : public Divine {
  private:
   virtual void unlock_secret_power() const override {
     if (_kill_count >= NR_ENEMIES) {
-      cout << "You've slained the god..." << endl;
+      cout << "You've slain the god..." << endl;
       system("/bin/sh");
     } else {
       cout << "You haven't killed all the angels guarding the god..." << endl;
-      exit(0);
+      exit(EXIT_FAILURE);
     }
   }
 };
@@ -62,14 +59,17 @@ class Devil final : public Divine {
 
 void sigsegv_handler(int) {
   cout << "\nYou've been casted away from the heaven again..." << endl;
-  exit(0);
+  exit(EXIT_FAILURE);
+}
+
+
+void init_proc() {
+  setvbuf(stdout, NULL, _IONBF, 0);
+  signal(SIGSEGV, sigsegv_handler);
 }
 
 int main() {
-  // Disable stdout buffering
-  setvbuf(stdout, NULL, _IONBF, 0);
-
-  signal(SIGSEGV, sigsegv_handler);
+  init_proc();
 
   cout << "Reborn to divinity\n"
           "==================\n"
@@ -91,7 +91,7 @@ int main() {
     new Angel("Selaphiel"),
   };
 
-  char* data;
+  char* soul;
   unsigned int op;
   Divine* satan = divines[0];
 
@@ -104,27 +104,25 @@ int main() {
     cin >> op;
 
     switch (op) {
-      case 1: {
+      case 1:
         for (size_t i = 1; i < 1 + NR_ENEMIES; i++) {
           satan->kill(divines[i]);
         }
         cout << "you died in the battle..." << endl;
         delete satan;
         break;
-      }
 
-      case 2: {
+      case 2:
         cout << "As the ruler of hell, you can bestow this soul a gift: ";
-        data = new char[24];
-        read(0, data, 24);
+        soul = new char[24];
+        read(0, soul, 24);
         cout << "resurrected one soul." << endl;
         break;
-      }
 
       default:
         break;
     }
   }
 
-  return 0;	
+  return EXIT_SUCCESS;	
 }
