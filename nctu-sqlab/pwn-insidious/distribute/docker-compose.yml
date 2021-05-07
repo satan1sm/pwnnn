@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  insidious:
+    build: ./
+    volumes:
+      - ./share:/home/insidious:ro
+      - ./xinetd:/etc/xinetd.d/insidious:ro
+    cap_add:
+      - SYS_PTRACE
+    ports:
+      - "30200:10101"
+    expose:
+      - "10101"
